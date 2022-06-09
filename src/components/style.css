@@ -1,3 +1,17 @@
-.titlecard{
-    background-color: rgb(136, 44, 44);
+
+@font-face {
+    font-family: 'pokemon';
+    src: url('../files/webfontkit-20220608-182920/pokemongb-raeo-webfont.woff2') format('woff2'),
+         url('../files/webfontkit-20220608-182920/pokemongb-raeo-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+.title-card{
+    color: white;
+    font-family: 'pokemon';
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+.card{
+
 }
