@@ -15,12 +15,13 @@ export default function Pokelist() {
         .then(({data}) => {
           // handle success
          setPokemon(pokemon => [...pokemon, data]);
+         console.log(data.sprites)
          
         })
         .catch(err => {
           // handle error
           setIsLoaded(true)
-         setError(err)
+          setError(err)
         })
     }
     
@@ -28,12 +29,8 @@ export default function Pokelist() {
   
   const pokemonList = pokemon.map((beast)=><Pokecard beast = {beast}></Pokecard>)
 
-  function readList(){
-    console.log(pokemon)
-  }
   return (
-    <div>
-      <Test pokemon = {pokemon[0]}/>
+    <div className='grid pokelist'>
       {pokemonList}
     </div>
   )

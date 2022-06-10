@@ -31,31 +31,24 @@ export default function Pokecard(props) {
         rock:["#6D4C41","#A1887F","#D7CCC8"],
         ghost:["#7E57C2","#B39DDB","#EDE7F6"],
         dragon:["#303F9F","#7986CB","#C5CAE9"],
-        fairy:["","",""],
+        fairy:["#F48FB1","#F8BBD0","#FCE4EC"],
         default:["","",""]
 
 
     } 
     
     useEffect(()=>{
-        axios.get(`https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random()*151)}/`)
-        .then(({data}) => {
-          // handle success
-        setIsLoaded(true)
-         setPokemon(data);
+        if(props.beast != undefined){
+            setPokemon(props.beast)
+            setIsLoaded(true)
+        }
 
-        })
-        .catch(err => {
-          // handle error
-          setIsLoaded(true)
-         setError(err)
-        })
-    }, [newPokemon, ]);
+    }, [pokemon]);
 
     if(error){
         return <div>Error {error.message}</div>;
     }else if(!isLoaded){
-        return <div>Loading ...</div>;
+        return <div></div>;
     }else{
 
         let color = tipos.hasOwnProperty(pokemon.types[0].type.name)? tipos[pokemon.types[0].type.name]:tipos.default
@@ -63,14 +56,12 @@ export default function Pokecard(props) {
         <>
         <div className='card' style={{backgroundColor: color[2]}}>
             <div className='title-card' style={{backgroundColor: color[0]}}>
-                <h2>{upperCaseFirst(pokemon.name)}</h2>
-                <h5>{pokemon.types[0].type.name}</h5>
+                <h2 className='name'>{upperCaseFirst(pokemon.name)}</h2>
+                <h5 className='types'>{pokemon.types.map((tipo)=>tipo.type.name + " ")}</h5>
             </div>
-            <img src={pokemon.sprites["front_default"]}></img>
+            <img className='image' src={pokemon.sprites["front_default"]}></img>
             
         </div>
-        <button onClick={()=>{console.log(console.log(props.beast.name))}}>{props.beast!=undefined?props.beast.name:"default"}</button>
-        <button onClick={()=>{setNewPokemon(!newPokemon)}}>Random Pokemon</button>
         </>
         );
     }
