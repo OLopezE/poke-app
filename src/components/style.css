@@ -14,27 +14,103 @@
 }
 .grid{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     grid-gap: 1rem;
+}
+
+
+
+@media (min-width: 50rem) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 70rem) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.pokedetail-container{
+    width: 80%;
+    padding-left: 10%;
+
+}
+
+.button{
+    position: relative;
+    height: 50px;
+    width: 50%;
+    background-color: beige;
+}
+.wing{
+    width: 100px;
+    height: 100px;
+    background-color: beige;
+    position: absolute;
+    top: 0;
+    left:0;
+    border-radius: 0 0px 50px 0;
+}
+.afterPokemon{
+
+}
+.typeBox{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width: 10%;
+    min-width: 105px;
+    height: 45px;
+
+}
+
+.box{
+    width: 40%;
+}
+
+.boxes-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.input-container{
+
+}
+.search-engine{
+    margin-top: 1rem;
+    margin-left: 20%;
+    width: 60%;
+    height: 1.5rem;
+    border: 2px solid rgb(175, 175, 175);
+
+
+    
 }
 .title-card{
     padding: .2rem 2rem;
+    text-align: center;
+}
+.title{
+    position: absolute;
+    width: 100%;
     text-align: center;
 }
 .image{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    height: 65%;
+    height: 60%;
 }
 .card{
-    
-    min-height: 300px;
+    max-height: 450px;
 
 }
 .pokelist{
     margin: auto;
-    max-width: 978px;
+    width: 80%;
     padding-top: 1rem;
 }
 .nav-container{
@@ -49,10 +125,27 @@
     height: 50%;
 }
 
-.white-part{
-
-}
 .blackbelt{
     background-color: #000;
     height:10%;
+}
+.black-circle{
+    position: relative;
+    height: 50px;
+    width: 50px;
+    top: -15px;
+    margin: auto;
+    background-color: #000;
+    border-radius: 50%;
+    
+}
+.white-circle{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    top: 10px;
+    left: 10px;
+    
 }
